@@ -16,6 +16,7 @@ app.add_middleware(
 
 class SymptomRequest(BaseModel):
     symptoms: str
+    language: str = "English"  # default to English if not provided
 
 @app.get("/")
 def home():
@@ -23,5 +24,5 @@ def home():
 
 @app.post("/predict")
 def predict(data: SymptomRequest):
-    result = get_health_advice(data.symptoms)
+    result = get_health_advice(data.symptoms, data.language)
     return {"response": result}
