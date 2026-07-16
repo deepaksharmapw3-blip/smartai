@@ -10,6 +10,7 @@ import HealthStats    from "../components/HealthStats";
 import ReportHistory  from "../components/ReportHistory";
 import Footer         from "../components/Footer";
 import { useState, useEffect } from "react";
+import NearestHospital from "../components/NearestHospital";
 
 interface Report {
   id: number;
@@ -102,6 +103,8 @@ export default function Home() {
       <HealthStats reports={reports.length} medicines={medicineList.length} />
 
       <ReportHistory reports={reports} setReports={setReports} />
+
+      <NearestHospital />
 
       <Footer />
     </>
